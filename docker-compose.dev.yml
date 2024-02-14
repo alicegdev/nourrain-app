@@ -1,0 +1,47 @@
+version: '3.9'
+
+services:
+  nourrain_app:
+    build:
+      context: ./
+      dockerfile: ./docker/Dockerfile.dev
+    command: /bin/bash -c "while sleep 1000; do :; done"
+    working_dir: /home/dev
+    networks:
+      - nourrain-network
+    volumes:
+      - ./:/home/dev:cached
+
+  db:
+    image: mariadb
+    restart: always
+    ports:
+      - "3309:3306"
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=false
+      - MYSQL_ROOT_PASSWORD=rootpassword
+    command:
+      [
+        "--character-set-server=utf8mb4",
+        "--collation-server=utf8mb4_unicode_ci"
+      ]
+    volumes:
+      - ./backend/db/db-data:/var/lib/mysql
+      - ./backend/db/mariadb.cnf:/etc/mysql/mariadb.cnf
+    networks:
+      - nourrain-network
+  # proxy:
+  #   image: nginx
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   restart: always
+  #   volumes:
+  #     - ./nginx/api-dev.nginx.conf:/etc/nginx/conf.d/api.nginx.conf
+  #   networks:
+  #     - api-network  
+
+networks:
+  nourrain-network:
+    driver: bridge
+    name: nourrain-network
