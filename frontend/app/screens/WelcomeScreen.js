@@ -7,11 +7,10 @@ function WelcomeScreen(props) {
     return(
         <ImageBackground
             style={styles.background}
-            source={require('../assets/icon.png')}
+            source={require('../assets/home.gif')}
         >
             <View style={styles.logoContainer}>
                 <Image style={styles.logo} source={require('../assets/logo.png')} />
-                <Text>Tirelire</Text>
             </View>
 
             <View style={styles.container}>

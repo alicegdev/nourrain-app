@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button, StyleSheet, Alert, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import axios from 'axios';
 
 const LoginScreen = () => {
   const [username, setUsername] = useState('');
@@ -8,7 +9,7 @@ const LoginScreen = () => {
   const navigation = useNavigation();
 
   const handleLogin = () => {
-    Alert.alert('Login Attempt', `Username: ${username}, Password: ${password}`);
+    // Alert.alert('Login Attempt', `Username: ${username}, Password: ${password}`);
     navigation.navigate('UserPageScreen', { userId: '2'})
     // navigation.navigate('UserPageScreen', {userId: 'user.id'})
   };
@@ -16,7 +17,6 @@ const LoginScreen = () => {
   return (
     <ImageBackground
             style={styles.background}
-            source={require('../assets/icon.png')}
         >
         <View style={styles.container}>
         <TextInput
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     background: {
         flex:1,
         alignItems: 'center',
+        backgroundColor: '#F3F0E8',
     },
   container: {
     flex: 1,
