@@ -1,27 +1,35 @@
 import React from 'react';
-import { ImageBackground, StyleSheet, Text, View } from "react-native";
+import { ImageBackground, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import axios from 'axios';
 
-function UserPageScreen(props) {
-// function UserPageScreen({route}) {
+function UserPageScreen({ route }) {
+    // pr l'instant ca rend la page pour le user avec l'id: 2
+    const userId = route.params?.userId || '2';
     const datas = [
-        {
+        {   
+            'id': '1',
             'name': 'don',
-            'amout': '5'
+            'amount': '5'
         },
         {
+            'id': '2',
             'name': 'alice',
-            'amout': '20'
+            'amount': '20'
         },
         {
+            'id': '3',
             'name': 'matthieu',
-            'amout': '50'
+            'amount': '50'
         }
-    ]
-    // const [data, setData] = useState([]);
-    // const [loading, setLoading] = useState(true);
+    ];
 
-    // useEffect(() => {
+    const user = datas.find((item) => item.id === userId);
+
+    const addMoney = () => {
+        // appel api update
+      };
+
+    //   useEffect(() => {
     //     fetch('localhost:8000')
     //       .then((response) => response.json())
     //       .then((json) => {
@@ -37,18 +45,33 @@ function UserPageScreen(props) {
     //   if (loading) {
     //     return <ActivityIndicator />;
     //   }
+
     return (
         <ImageBackground
             style={styles.background}
             source={require('../assets/icon.png')}
         >
             <View style={styles.container}>
-            {datas.map((item, index) => (
-                <Text key={index}>{item.name}</Text>,
-                <Text key={index}>{item.amount}</Text>
-            ))}
+                {user ? (
+                    <View>
+                        <Text>{user.name}</Text>
+                        <Text>Vous avez {user.amount}€ dans la tirelire</Text>
+                    </View>
+                ) : (
+                    <Text>User not found</Text>
+                )}
+            </View>
+
+            <View style={styles.container}>
+                <TouchableOpacity
+                    style={styles.button1}
+                    onPress={addMoney}
+                    >
+                    <Text style={styles.buttonText}>Oink Oink</Text>
+                </TouchableOpacity>
             </View>
         </ImageBackground>
+        
     );
 }
 
@@ -56,6 +79,12 @@ const styles = StyleSheet.create({
     background: {
         flex:1,
         alignItems: 'center',
+    },
+    button1: {
+        padding: 20,
+        // margin: 10,
+        borderRadius: 5,
+        backgroundColor: 'pink',
     },
     container: {
         flex: 1,

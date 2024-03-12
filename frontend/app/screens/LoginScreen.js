@@ -9,8 +9,8 @@ const LoginScreen = () => {
 
   const handleLogin = () => {
     Alert.alert('Login Attempt', `Username: ${username}, Password: ${password}`);
-    navigation.navigate('UserPageScreen')
-    // navigation.navigate('UserPageScreen', {username: 'Username'})
+    navigation.navigate('UserPageScreen', { userId: '2'})
+    // navigation.navigate('UserPageScreen', {userId: 'user.id'})
   };
 
   return (

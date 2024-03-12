@@ -23,7 +23,7 @@ function WelcomeScreen(props) {
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                style={styles.registerButton}
+                style={styles.loginButton}
                 onPress={() => console.log('register Pressed')}
                 >
                 <Text style={styles.buttonText}>Register</Text>
@@ -62,12 +62,6 @@ const styles = StyleSheet.create({
         top: 150,
         alignItems: 'center',
     },
-    registerButton: {
-        padding: 10,
-        margin: 5,
-        borderRadius: 5,
-        backgroundColor: 'black',
-    }
 })
 
 
