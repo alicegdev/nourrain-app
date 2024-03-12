@@ -6,3 +6,8 @@ const connection = mysql.createConnection({
   password: 'nourrain-dev-password',
   database: 'nourrain_db'
 });
+
+connection.connect((err) => {
+  if (err) throw err;
+  console.log('Connecté à la base de données MariaDB');
+});
