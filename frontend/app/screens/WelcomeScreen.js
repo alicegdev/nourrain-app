@@ -15,17 +15,17 @@ function WelcomeScreen(props) {
 
             <View style={styles.containerHome}>
                 <TouchableOpacity
-                style={styles.loginButton}
-                onPress={() => navigation.navigate('LoginScreen')}
-                >
-                <Text style={styles.buttonText}>S'identifier</Text>
+                    style={styles.loginButton}
+                    onPress={() => navigation.navigate('LoginScreen')}
+                    >
+                    <Text style={styles.buttonText}>S'identifier</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                style={styles.loginButton}
-                onPress={() => navigation.navigate('RegisterScreen')}
-                >
-                <Text style={styles.buttonText}>Nouveau compte</Text>
+                    style={styles.loginButton}
+                    onPress={() => navigation.navigate('RegisterScreen')}
+                    >
+                    <Text style={styles.buttonText}>Nouveau compte</Text>
                 </TouchableOpacity>
             </View>
 
@@ -43,7 +43,6 @@ const styles = StyleSheet.create({
       },
     containerHome: {
         flex: 1,
-        // justifyContent: 'center',
         top: 600,
         alignItems: 'center',
       },

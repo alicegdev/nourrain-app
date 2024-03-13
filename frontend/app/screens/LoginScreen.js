@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet, Text, ImageBackground } from 'react-native';
+import { View, TextInput, TouchableOpacity, StyleSheet, Text, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
 
@@ -33,7 +33,12 @@ const LoginScreen = () => {
               onChangeText={setPassword}
               secureTextEntry
           />
-          <Button title="Valider" onPress={handleLogin} />
+          <TouchableOpacity
+              style={styles.validateButton}
+              onPress={handleLogin}
+              >
+              <Text style={styles.buttonText}>Valider</Text>
+          </TouchableOpacity>
         </View>
     </ImageBackground>
   );
@@ -41,9 +46,13 @@ const LoginScreen = () => {
 
 const styles = StyleSheet.create({
     background: {
-        flex:1,
-        alignItems: 'center',
-        backgroundColor: '#F3F0E8',
+      flex:1,
+      alignItems: 'center',
+      backgroundColor: '#F3F0E8',
+    },
+    buttonText: {
+      color: 'white',
+      fontSize: 16,
     },
     container: {
       flex: 1,
@@ -61,6 +70,13 @@ const styles = StyleSheet.create({
       padding: 10,
       borderRadius: 5,
     },
+    validateButton: {
+      padding: 10,
+      margin: 15,
+      borderRadius: 5,
+      backgroundColor: 'grey',
+      alignItems: 'center',
+    }
 });
 
 export default LoginScreen;
