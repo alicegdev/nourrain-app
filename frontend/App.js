@@ -1,5 +1,6 @@
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import LoginScreen from './app/screens/LoginScreen';
+import RegisterScreen from './app/screens/RegisterScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import UserPageScreen from './app/screens/UserPageScreen';
@@ -13,6 +14,7 @@ export default function App() {
       <Stack.Navigator>
       <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
       <Stack.Screen name="LoginScreen" component={LoginScreen} />
+      <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
       <Stack.Screen name="UserPageScreen" component={UserPageScreen} />
       </Stack.Navigator>
     </NavigationContainer>

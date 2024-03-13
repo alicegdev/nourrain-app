@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet, Alert, ImageBackground } from 'react-native';
+import { View, TextInput, Button, StyleSheet, Text, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
 
@@ -19,20 +19,21 @@ const LoginScreen = () => {
             style={styles.background}
         >
         <View style={styles.container}>
-        <TextInput
-            style={styles.input}
-            placeholder="Username"
-            value={username}
-            onChangeText={setUsername}
-        />
-        <TextInput
-            style={styles.input}
-            placeholder="Password"
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry
-        />
-        <Button title="Login" onPress={handleLogin} />
+        <Text style={styles.header}>S'identifier</Text>
+          <TextInput
+              style={styles.input}
+              placeholder="Username"
+              value={username}
+              onChangeText={setUsername}
+          />
+          <TextInput
+              style={styles.input}
+              placeholder="Mot de passe"
+              value={password}
+              onChangeText={setPassword}
+              secureTextEntry
+          />
+          <Button title="Valider" onPress={handleLogin} />
         </View>
     </ImageBackground>
   );
@@ -44,18 +45,22 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#F3F0E8',
     },
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    padding: 16,
-  },
-  input: {
-    height: 40,
-    marginBottom: 12,
-    borderWidth: 1,
-    padding: 10,
-    borderRadius: 5,
-  },
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      padding: 16,
+    },
+    header: {
+      fontSize: 24,
+      marginBottom: 20,
+    },
+    input: {
+      height: 40,
+      marginBottom: 12,
+      borderWidth: 1,
+      padding: 10,
+      borderRadius: 5,
+    },
 });
 
 export default LoginScreen;
