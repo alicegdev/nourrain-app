@@ -26,8 +26,8 @@ services:
         "--collation-server=utf8mb4_unicode_ci"
       ]
     volumes:
-      - ./backend/db/db-data:/var/lib/mysql
-      - ./backend/db/mariadb.cnf:/etc/mysql/mariadb.cnf
+      - ./db/db-data:/var/lib/mysql
+      - ./db/mariadb.cnf:/etc/mysql/mariadb.cnf
     networks:
       - nourrain-network
   # proxy:

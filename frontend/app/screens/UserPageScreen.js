@@ -62,7 +62,7 @@ function UserPageScreen({ route }) {
             <View style={styles.container}>
                 {user ? (
                     <View>
-                        <Text>{user.name},</Text>
+                        <Text>@{user.name},</Text>
                         <Text>Vous avez {user.amount}€ dans la tirelire</Text>
 
                         <TouchableOpacity 
