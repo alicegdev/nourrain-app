@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 8000;
 const app = Express();
 
 // Créer un endpoint GET
-app.get('/addCredits', 
+app.put('/addCredits', 
     (request, response) => {
     update('User', request.body.userId, 'user_credits_amount = user_credits_amount + 5');
     response.status(200).send("User account credited");
