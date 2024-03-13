@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, TextInput, Button, Text, ImageBackground } from 'react-native';
+import { StyleSheet, View, TextInput, TouchableOpacity, Text, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const RegisterScreen = () => {
@@ -33,7 +33,12 @@ const RegisterScreen = () => {
             onChangeText={setPassword}
             secureTextEntry={true}
         />
-        <Button title="S'enregistrer" onPress={handleSignup} />
+        <TouchableOpacity
+              style={styles.validateButton}
+              onPress={handleSignup}
+              >
+              <Text style={styles.buttonText}>S'enregistrer</Text>
+          </TouchableOpacity>
         </View>
     </ImageBackground>
   );
@@ -45,22 +50,33 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#F3F0E8',
     },
-  header: {
-    fontSize: 24,
-    marginBottom: 20,
-  },
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    padding: 16,
-  },
-  input: {
-    height: 40,
-    marginBottom: 12,
-    borderWidth: 1,
-    padding: 10,
-    borderRadius: 5,
-  },
+    buttonText: {
+        color: 'white',
+        fontSize: 16,
+      },
+    header: {
+        fontSize: 24,
+        marginBottom: 20,
+    },
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        padding: 16,
+    },
+    input: {
+        height: 40,
+        marginBottom: 12,
+        borderWidth: 1,
+        padding: 10,
+        borderRadius: 5,
+    },
+    validateButton: {
+        padding: 10,
+        margin: 15,
+        borderRadius: 5,
+        backgroundColor: 'grey',
+        alignItems: 'center',
+    }
 });
 
 export default RegisterScreen;
