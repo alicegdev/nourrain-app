@@ -23,7 +23,7 @@ function WelcomeScreen(props) {
 
                 <TouchableOpacity
                 style={styles.loginButton}
-                onPress={() => console.log('register Pressed')}
+                onPress={() => navigation.navigate('RegisterScreen')}
                 >
                 <Text style={styles.buttonText}>Nouveau compte</Text>
                 </TouchableOpacity>
