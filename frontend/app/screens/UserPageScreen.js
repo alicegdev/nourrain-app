@@ -8,17 +8,17 @@ function UserPageScreen({ route }) {
     let initialDatas = [
         {   
             'id': '1',
-            'name': 'don',
+            'name': 'bastien@oink.com',
             'amount': 5
         },
         {
             'id': '2',
-            'name': 'alice',
-            'amount': 20
+            'name': 'alice@oink.com',
+            'amount': 0
         },
         {
             'id': '3',
-            'name': 'matthieu',
+            'name': 'matthieu@oink.com',
             'amount': 50
         }
     ];
@@ -62,7 +62,7 @@ function UserPageScreen({ route }) {
             <View style={styles.container}>
                 {user ? (
                     <View>
-                        <Text>@{user.name},</Text>
+                        <Text style={styles.email}>Compte de {user.name},</Text>
                         <Text>Vous avez {user.amount}€ dans la tirelire</Text>
 
                         <TouchableOpacity 
@@ -94,6 +94,9 @@ const styles = StyleSheet.create({
         flex:1,
         alignItems: 'center',
         backgroundColor: '#F3F0E8',
+    },
+    email: {
+        marginBottom: 60
     },
     oinkButton: {
         padding: 20,
