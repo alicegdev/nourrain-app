@@ -2,7 +2,7 @@
 use nourrain_db;
 
 CREATE TABLE User (
-  user_id INT AUTO_INCREMENT PRIMARY KEY,
+  id INT AUTO_INCREMENT PRIMARY KEY,
   user_email VARCHAR(255) NOT NULL,
   user_password VARCHAR(255) NOT NULL,
   user_name VARCHAR(255) NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE User (
 );
 
 CREATE TABLE Team (
-    team_id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     team_name VARCHAR(255) NOT NULL,
     team_credits_amount DECIMAL(10, 2),
     min_contribution DECIMAL(10, 2),
@@ -23,7 +23,7 @@ CREATE TABLE Team (
 );
 
 CREATE TABLE Transaction(
-    transaction_id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     transaction_date TIMESTAMP,
     transaction_amount DECIMAL(10, 2),
     credited_by INT,
@@ -31,22 +31,22 @@ CREATE TABLE Transaction(
 );
 
 CREATE TABLE Partner(
-    partner_id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     partner_name VARCHAR(255),
     partner_required_credits_by_person DECIMAL(10, 2)
 );
 
 ALTER TABLE User
-ADD FOREIGN KEY (user_team_id) REFERENCES Team(team_id);
+ADD FOREIGN KEY (user_team_id) REFERENCES Team(id);
 
 ALTER TABLE Team
-ADD FOREIGN KEY (managed_by) REFERENCES User(user_id);
+ADD FOREIGN KEY (managed_by) REFERENCES User(id);
 
 ALTER TABLE Transaction
-ADD FOREIGN KEY (credited_by) REFERENCES User(user_id);
+ADD FOREIGN KEY (credited_by) REFERENCES User(id);
 
 ALTER TABLE Transaction
-ADD FOREIGN KEY (partner_id) REFERENCES Partner(partner_id);
+ADD FOREIGN KEY (partner_id) REFERENCES Partner(id);
 
 ALTER TABLE Team
-ADD FOREIGN KEY (partner_id) REFERENCES Partner(partner_id);
+ADD FOREIGN KEY (partner_id) REFERENCES Partner(id);

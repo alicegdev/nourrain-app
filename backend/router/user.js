@@ -18,6 +18,15 @@ app.put('/addCredits',
   }
 );
 
+// Créer un endpoint GET
+app.get('/getUser', 
+    (request, response) => {
+    const userId = request.body.userId;
+    read(`User WHERE id = ${userId}`);
+    response.status(200).send({});
+  }
+);
+
 // Server des fichiers statiques
 app.use('/public', Express.static(join('assets')));
 
